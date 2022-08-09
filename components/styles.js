@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import  Constants  from "expo-constants";
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import { View, Text, TouchableOpacity, Image, Dimensions } from "react-native";
 
 const StatusBarHeight  = Constants.statusBarHeight;
-
+const {width, height} = Dimensions.get('screen')
 
 export const Colors = {
   GRAD1: "linear-gradient(101.63deg, #BD0000 -26.55%, #FEB52E 100%)",
@@ -16,11 +16,10 @@ export const Colors = {
 const { GRAD1, DEEP, LIGHT } = Colors;
 
 export const StyledContainer = styled.View`
-  height: 90%;
+  height: 100%;
   display: flex;
   justify-content: flex-start;
   padding-top: ${StatusBarHeight + 10}px;
-  width: 100%;
 `;
 
 export const HeadText = styled.Text`
@@ -67,8 +66,8 @@ margin:auto;
 
 
 export const StyledImage = styled.Image`
- width: 400px;
-height: 450px;
+ width: 450;
+ height: 450px;
 `;
 
 export const CenterText = styled.Text`
