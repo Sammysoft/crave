@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import  Constants  from "expo-constants";
-import { View, Text, TouchableOpacity, Image, Dimensions } from "react-native";
+import { View, Text, TouchableOpacity, Image, Dimensions, TextInput } from "react-native";
 
 const StatusBarHeight  = Constants.statusBarHeight;
 const {width, height} = Dimensions.get('screen')
@@ -9,11 +9,16 @@ export const Colors = {
   GRAD1: "linear-gradient(101.63deg, #BD0000 -26.55%, #FEB52E 100%)",
   DEEP: "#BD0000",
   LIGHT: "#FEDD82",
+  BUTTON: "#F6B300",
+  DARK: "#1A1A19",
+  NORMAL: "#717171",
+  WHITE: "#FFFFFF",
+  GREY:"#E5E5E5"
 };
 
 
 
-const { GRAD1, DEEP, LIGHT } = Colors;
+const { GRAD1, DEEP, LIGHT, WHITE, DARK, NORMAL, GREY } = Colors;
 
 export const StyledContainer = styled.View`
   height: 100%;
@@ -77,5 +82,58 @@ text-align:center;
 export const SvgImage = styled.Image`
 
 `;
+
+export const SignInButton = styled.View`
+background-color: ${LIGHT};
+border-radius: 10;
+color: ${DEEP};
+padding: 8;
+`
+
+
+
+export const FormInput = styled.TextInput`
+background-color: ${WHITE};
+width: 100%;
+border-radius: 5px;
+padding: 10px;
+color: ${DEEP};
+font-size: 16px;
+marginTop: 10px
+`
+
+export const FormInput2 = styled.TextInput`
+width: 100%;
+border-radius: 5px;
+padding: 10px;
+color: ${DARK};
+font-size: 16px;
+`
+
+export const FormInputHalf = styled.TextInput`
+background-color: ${WHITE};
+width: 100%;
+border-radius: 5px;
+padding: 10px;
+color: ${DEEP};
+font-size: 16px;
+marginTop: 10px
+`
+
+export const FormText  =styled.Text`
+font-size: 16;
+font-weight: 400;
+color: ${NORMAL};
+`
+
+export const SearchFormInput =  styled.TextInput`
+background-color: ${WHITE};
+width: 100%;
+border-radius: 20px;
+padding: 10px;
+color: ${DEEP};
+font-size: 16px;
+`
+
 
 
