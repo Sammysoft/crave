@@ -8,10 +8,9 @@ import {
   Dimensions,
   TouchableOpacity,
   ScrollView,
-  TextInput,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { Colors, FormInput2 } from "../styles";
+import { Colors, FormInput2, StyledContainer } from "../styles";
 import Divider from "../Divider";
 const { width, height } = Dimensions.get("screen");
 
@@ -20,64 +19,67 @@ const AccountSettings = ({ navigation }) => {
     <>
       <SafeAreaView>
         <StatusBar style="dark" backgroundColor="white" />
-        <View
-          style={{
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            flexDirection: "row",
-            backgroundColor: Colors.WHITE,
-            marginTop: 30,
-            padding: 10,
-          }}
-        >
-          <TouchableOpacity>
-            <Ionicons
-              name="chevron-back-outline"
-              size={35}
-              onPress={() => {
-                navigation.goBack();
-              }}
-            />
-          </TouchableOpacity>
-          <View style={{ marginLeft: width / 5 }}>
-            <Text
-              style={{
-                fontFamily: "Nunito",
-                textAlign: "center",
-                fontSize: 20,
-              }}
-            >
-              Account Settings
-            </Text>
-          </View>
-        </View>
-        <View style={{ padding: 30, backgroundColor: Colors.WHITE }}>
+        <StyledContainer>
           <View
             style={{
-              backgroundColor: Colors.GREY,
-              width: 150,
               display: "flex",
-              justifyContent: "center",
+              justifyContent: "flex-start",
               alignItems: "center",
-              borderRadius: 150,
-              height: 150,
-              position: "relative",
+              flexDirection: "row",
+              backgroundColor: Colors.WHITE,
+              padding: 5,
             }}
           >
-            <Ionicons
-              name="person"
-              size={100}
-              style={{ color: Colors.DEEP, marginTop: 20 }}
-            />
-            <Ionicons
-              name="create"
-              size={30}
-              style={{ bottom: 10, left: -50, color: Colors.DEEP }}
-            />
+            <TouchableOpacity>
+              <Ionicons
+                name="chevron-back-outline"
+                size={35}
+                onPress={() => {
+                  navigation.goBack();
+                }}
+              />
+            </TouchableOpacity>
+            <View style={{width:width-70,}}>
+              <Text
+                style={{
+                  fontFamily: "Nunito",
+                  textAlign: "center",
+                  fontSize: 20,
+                }}
+              >
+                Account Settings
+              </Text>
+            </View>
           </View>
-        </View>
-        <AccountForm />
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={{ padding: 30, backgroundColor: Colors.WHITE }}>
+              <View
+                style={{
+                  backgroundColor: Colors.GREY,
+                  width: width / 2.5,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: width/2.5,
+                  height: height / 5.5,
+                  position: "relative",
+                }}
+              >
+                <Ionicons
+                  name="person"
+                  size={100}
+                  style={{ color: Colors.DEEP, marginTop: 20 }}
+                />
+                <Ionicons
+                  name="create"
+                  size={30}
+                  style={{ bottom: 10, left: -50, color: Colors.DEEP }}
+                />
+              </View>
+            </View>
+            <AccountForm />
+          </ScrollView>
+        </StyledContainer>
       </SafeAreaView>
     </>
   );
@@ -88,7 +90,7 @@ const AccountForm = () => {
     <>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        style={{ height: height / 2.2 }}
+        style={{ height: height / 2.2, paddingBottom: height / 3 }}
       >
         <Formik
           initialValues={{
@@ -112,7 +114,7 @@ const AccountForm = () => {
           )}
         </Formik>
       </ScrollView>
-      <TouchableOpacity>
+      <TouchableOpacity >
         <View
           style={{
             width,
@@ -131,7 +133,9 @@ const AccountForm = () => {
               alignItems: "center",
             }}
           >
-            <Text style={{ color: Colors.DEEP, fontFamily: "Nunito", fontSize:14 }}>
+            <Text
+              style={{ color: Colors.DEEP, fontFamily: "Nunito", fontSize: 14 }}
+            >
               Save Settings
             </Text>
           </View>

@@ -1,9 +1,11 @@
 import styled from "styled-components";
-import  Constants  from "expo-constants";
-import { View, Text, TouchableOpacity, Image, Dimensions, TextInput } from "react-native";
+import Constants from "expo-constants";
+import {
+  Dimensions,
+} from "react-native";
 
-const StatusBarHeight  = Constants.statusBarHeight;
-const {width, height} = Dimensions.get('screen')
+const StatusBarHeight = Constants.statusBarHeight;
+const { width, height } = Dimensions.get("screen");
 
 export const Colors = {
   GRAD1: "linear-gradient(101.63deg, #BD0000 -26.55%, #FEB52E 100%)",
@@ -13,10 +15,8 @@ export const Colors = {
   DARK: "#1A1A19",
   NORMAL: "#717171",
   WHITE: "#FFFFFF",
-  GREY:"#E5E5E5"
+  GREY: "#E5E5E5",
 };
-
-
 
 const { GRAD1, DEEP, LIGHT, WHITE, DARK, NORMAL, GREY } = Colors;
 
@@ -24,19 +24,17 @@ export const StyledContainer = styled.View`
   height: 100%;
   display: flex;
   justify-content: flex-start;
-  padding-top: ${StatusBarHeight + 10}px;
+  padding-top: ${StatusBarHeight }px;
 `;
 
 export const HeadText = styled.Text`
-color: ${DEEP};
-font-size: 25px;
+  color: ${DEEP};
+  font-size: 25px;
 `;
 
 export const DeepText = styled.Text`
-color: ${DEEP};
-`
-
-
+  color: ${DEEP};
+`;
 
 export const TransparentButton = styled.TouchableOpacity`
   background-color: transparent;
@@ -51,89 +49,84 @@ export const TransparentButton = styled.TouchableOpacity`
 `;
 
 export const AreaView = styled.View`
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 
-${(props)=> props.placement == true && `
+  ${(props) =>
+    props.placement == true &&
+    `
  align-items: flex-end;
  justify-content: flex-end;
 `}
 
-${(props)=> props.average == true && `
+  ${(props) =>
+    props.average == true &&
+    `
 width: 60%;
 margin:auto;
 `}
-
 `;
 
-
 export const StyledImage = styled.Image`
- width: 450;
- height: 450px;
+  width: ${width};
+  height: ${width};
 `;
 
 export const CenterText = styled.Text`
-text-align:center;
+  text-align: center;
 `;
 
-export const SvgImage = styled.Image`
-
-`;
+export const SvgImage = styled.Image``;
 
 export const SignInButton = styled.View`
-background-color: ${LIGHT};
-border-radius: 10;
-color: ${DEEP};
-padding: 8;
-`
-
-
+  background-color: ${LIGHT};
+  border-radius: 10;
+  color: ${DEEP};
+  padding: 8;
+`;
 
 export const FormInput = styled.TextInput`
-background-color: ${WHITE};
-width: 100%;
-border-radius: 5px;
-padding: 10px;
-color: ${DEEP};
-font-size: 16px;
-marginTop: 10px
-`
+  background-color: ${WHITE};
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  color: ${DEEP};
+  font-size: 16px;
+  margin-top: 10px;
+`;
 
 export const FormInput2 = styled.TextInput`
-width: 100%;
-border-radius: 5px;
-padding: 10px;
-color: ${DARK};
-font-size: 16px;
-`
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  color: ${DARK};
+  font-size: 16px;
+`;
 
 export const FormInputHalf = styled.TextInput`
-background-color: ${WHITE};
-width: 100%;
-border-radius: 5px;
-padding: 10px;
-color: ${DEEP};
-font-size: 16px;
-marginTop: 10px
-`
+  background-color: ${WHITE};
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  color: ${DEEP};
+  font-size: 16px;
+  marginTop: 10px;
+`;
 
-export const FormText  =styled.Text`
-font-size: 16;
-font-weight: 400;
-color: ${NORMAL};
-`
+export const FormText = styled.Text`
+  font-size: 16;
+  font-weight: 400;
+  color: ${NORMAL};
+`;
 
-export const SearchFormInput =  styled.TextInput`
-background-color: ${WHITE};
-width: 100%;
-border-radius: 20px;
-padding: 10px;
-color: ${DEEP};
-font-size: 16px;
-`
-
-
-
+export const SearchFormInput = styled.TextInput`
+  background-color: ${WHITE};
+  width: 100%;
+  border-radius: 20px;
+  padding: 10px;
+  color: ${DEEP};
+  font-size: 16px;
+`;

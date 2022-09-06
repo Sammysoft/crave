@@ -1,14 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import {
-  SafeAreaView,
-  Dimensions,
-} from "react-native";
+import { SafeAreaView, Dimensions } from "react-native";
 
-import {
-  StyledContainer,
-  Colors,
-} from "../components/styles";
+import { StyledContainer, Colors } from "../components/styles";
 import { useFonts } from "expo-font";
 import TopSearchBar from "../components/TopSearchBar";
 import Switcher from "../components/Switcher";
@@ -27,8 +21,8 @@ const Dashboard = ({ navigation }) => {
         <SafeAreaView>
           <StatusBar style="dark" />
           <StyledContainer>
-          <TopSearchBar />
-          <Switcher />
+            <TopSearchBar />
+            <Switcher />
           </StyledContainer>
         </SafeAreaView>
       </>

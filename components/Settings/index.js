@@ -1,9 +1,11 @@
 import React from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Dimensions } from "react-native";
 import Divider from "../Divider";
 import { Colors } from "../styles";
 import TopBar from "./TopBar";
+
+const { height, width } = Dimensions.get("screen")
 
 const Landing = ({ navigation }) => {
   return (
@@ -15,8 +17,8 @@ const Landing = ({ navigation }) => {
           alignItems: "center",
           flexDirection: "row",
           backgroundColor: Colors.WHITE,
-          marginTop: 30,
-          padding: 10,
+          width,
+          padding: 5,
         }}
       >
         <TouchableOpacity>
@@ -28,57 +30,61 @@ const Landing = ({ navigation }) => {
             }}
           />
         </TouchableOpacity>
-        <TopBar navigation={navigation}/>
+        <TopBar navigation={navigation} />
       </View>
-      <View
+      <TouchableOpacity
         style={{
           padding: 20,
         }}
+        onPress={()=>{navigation.navigate("notifications")}}
       >
         <Text
           style={{ fontFamily: "Nunito", fontSize: 16, color: Colors.NORMAL }}
         >
           Notification Settings
         </Text>
-      </View>
+      </TouchableOpacity>
       <Divider />
-      <View
+      <TouchableOpacity
         style={{
           padding: 20,
         }}
+        onPress={()=>{navigation.navigate("payments")}}
       >
         <Text
           style={{ fontFamily: "Nunito", fontSize: 16, color: Colors.NORMAL }}
         >
           Payment Details
         </Text>
-      </View>
+      </TouchableOpacity>
       <Divider />
-      <View
+      <TouchableOpacity
         style={{
           padding: 20,
         }}
+        onPress={()=>{navigation.navigate("promotion")}}
       >
         <Text
           style={{ fontFamily: "Nunito", fontSize: 16, color: Colors.NORMAL }}
         >
           Promotions
         </Text>
-      </View>
+      </TouchableOpacity>
       <Divider />
-      <View
+      <TouchableOpacity
         style={{
           padding: 20,
         }}
+        onPress={()=>{navigation.navigate("wallet")}}
       >
         <Text
           style={{ fontFamily: "Nunito", fontSize: 16, color: Colors.NORMAL }}
         >
           Wallet
         </Text>
-      </View>
+      </TouchableOpacity>
       <Divider />
-      <View
+      <TouchableOpacity
         style={{
           padding: 20,
         }}
@@ -88,9 +94,9 @@ const Landing = ({ navigation }) => {
         >
           Privacy
         </Text>
-      </View>
+      </TouchableOpacity>
       <Divider />
-      <View
+      <TouchableOpacity
         style={{
           padding: 20,
         }}
@@ -100,9 +106,9 @@ const Landing = ({ navigation }) => {
         >
           FAQ
         </Text>
-      </View>
+      </TouchableOpacity>
       <Divider />
-      <View
+      <TouchableOpacity
         style={{
           padding: 20,
         }}
@@ -112,9 +118,9 @@ const Landing = ({ navigation }) => {
         >
           About
         </Text>
-      </View>
+      </TouchableOpacity>
       <Divider />
-      <View
+      <TouchableOpacity
         style={{
           padding: 20,
         }}
@@ -124,7 +130,7 @@ const Landing = ({ navigation }) => {
         >
           Logout
         </Text>
-      </View>
+      </TouchableOpacity>
       <Divider />
     </>
   );

@@ -3,10 +3,11 @@ import { View, Text, SafeAreaView } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
+import { StyledContainer } from "../components/styles";
 import Landing from "../components/Settings";
 
 const SettingsScreen = ({ navigation }) => {
-    const route = useRoute()
+  const route = useRoute();
 
   let [fontLoaded] = useFonts({
     Nunito: require("./../assets/fonts/Nunito-Black.ttf"),
@@ -18,7 +19,9 @@ const SettingsScreen = ({ navigation }) => {
       <>
         <SafeAreaView>
           <StatusBar style="dark" backgroundColor="white" />
-          <Landing navigation={navigation}/>
+          <StyledContainer>
+            <Landing navigation={navigation} />
+          </StyledContainer>
         </SafeAreaView>
       </>
     );

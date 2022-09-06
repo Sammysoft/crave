@@ -16,13 +16,12 @@ import {
 } from "../components/styles";
 import { useFonts } from "expo-font";
 
-
-const { height, width } = Dimensions.get('screen')
+const { height, width } = Dimensions.get("screen");
 
 const GetStarted = ({ navigation }) => {
   let [fontLoaded] = useFonts({
     Nunito: require("./../assets/fonts/Nunito-Black.ttf"),
-    NunitoLight : require("./../assets/fonts/Nunito-Light.ttf")
+    NunitoLight: require("./../assets/fonts/Nunito-Light.ttf"),
   });
 
   if (fontLoaded) {
@@ -61,15 +60,23 @@ const GetStarted = ({ navigation }) => {
                   paddingTop: 20,
                   paddingBottom: 20,
                   borderRadius: 30,
-                  width: width * 2/3
+                  width: (width * 2) / 3,
                 }}
               >
-                <Text style={{ fontFamily: "NunitoLight", color: Colors.DEEP, fontSize: 15, textAlign:"center" }} onPress={()=>navigation.navigate('onboard')}>
+                <Text
+                  style={{
+                    fontFamily: "NunitoLight",
+                    color: Colors.DEEP,
+                    fontSize: 15,
+                    textAlign: "center",
+                  }}
+                  onPress={() => navigation.navigate("onboard")}
+                >
                   Get Started
                 </Text>
               </View>
             </AreaView>
-        </StyledContainer>
+          </StyledContainer>
         </SafeAreaView>
       </>
     );

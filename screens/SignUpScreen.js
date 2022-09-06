@@ -11,18 +11,10 @@ import {
 import { AntDesign } from "@expo/vector-icons";
 import {
   StyledContainer,
-  TransparentButton,
-  DeepText,
   AreaView,
-  StyledImage,
-  HeadText,
-  CenterText,
-  SvgImage,
-  SignInButton,
   Colors,
   FormInput,
   FormInputHalf,
-  FormText,
 } from "../components/styles";
 import { useFonts } from "expo-font";
 import { Formik } from "formik";
@@ -74,7 +66,6 @@ const SignupScreen = ({ navigation }) => {
                         flexDirection: "row",
                         alignItems: "center",
                         justifyContent: "space-between",
-
                       }}
                     >
                       <MyTextInputHalf
@@ -158,14 +149,20 @@ const SignupScreen = ({ navigation }) => {
                     </AreaView>
                     <View
                       style={{
-                        width:"100%",
+                        width: "100%",
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "center",
                         alignItems: "center",
                       }}
                     >
-                      <Text style={{ color: Colors.DEEP, fontFamily:"Nunito", fontSize: 12 }}>
+                      <Text
+                        style={{
+                          color: Colors.DEEP,
+                          fontFamily: "Nunito",
+                          fontSize: 12,
+                        }}
+                      >
                         Have an account? Log in
                       </Text>
                     </View>

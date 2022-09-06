@@ -1,13 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import {
-  SafeAreaView,
-  Dimensions,
-} from "react-native";
-import {
-  StyledContainer,
-  Colors,
-} from "../components/styles";
+import { SafeAreaView, Dimensions } from "react-native";
+import { StyledContainer, Colors } from "../components/styles";
 import { useFonts } from "expo-font";
 import TopSearchBar from "../components/TopSearchBar";
 import Switcher from "../components/Switcher";
@@ -22,7 +16,7 @@ const DashboardScreen = ({ navigation }) => {
   let [fontLoaded] = useFonts({
     Nunito: require("./../assets/fonts/Nunito-Black.ttf"),
     NunitoLight: require("./../assets/fonts/Nunito-Light.ttf"),
-    NunitoMedium: require("./../assets/fonts/Nunito-Medium.ttf")
+    NunitoMedium: require("./../assets/fonts/Nunito-Medium.ttf"),
   });
 
   if (fontLoaded) {
@@ -31,12 +25,12 @@ const DashboardScreen = ({ navigation }) => {
         <SafeAreaView>
           <StatusBar style="dark" />
           <StyledContainer>
-          <TopSearchBar navigation={navigation}/>
-          <Switcher></Switcher>
-          <HeadText />
-          <Categories />
-          {/* <AdSection /> */}
-          <ProductListings />
+            <TopSearchBar navigation={navigation} />
+            <Switcher></Switcher>
+            <HeadText />
+            <Categories />
+            {/* <AdSection /> */}
+            <ProductListings />
           </StyledContainer>
         </SafeAreaView>
       </>

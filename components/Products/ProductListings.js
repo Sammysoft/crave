@@ -4,7 +4,6 @@ import {
   View,
   Dimensions,
   Text,
-  FlatList,
   Image,
 } from "react-native";
 import { Colors } from "../styles";
@@ -158,7 +157,7 @@ const ProductItem = () => {
               <View
                 key={index}
                 style={{
-                  height:160,
+                  height: 160,
                   width: 165,
                   backgroundColor: "white",
                   marginTop: 10,
@@ -205,7 +204,9 @@ const ProductItem = () => {
                     #{datum.price}
                   </Text>
                 </View>
-                <Text style={{paddingLeft:5, fontSize:10}}>{"⭐⭐⭐⭐⭐ "}</Text>
+                <Text style={{ paddingLeft: 5, fontSize: 10 }}>
+                  {" ⭐⭐⭐⭐⭐ "}
+                </Text>
               </View>
             </>
           );

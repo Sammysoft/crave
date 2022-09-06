@@ -61,8 +61,8 @@ const Indicator = ({ scrollX }) => {
         const opacity = scrollX.interpolate({
           inputRange,
           outputRange: [0.3, 1, 0.3],
-          extrapolate: "clamp"
-        })
+          extrapolate: "clamp",
+        });
         return (
           <Animated.View
             key={`indicator-${i}`}
@@ -83,7 +83,7 @@ const Indicator = ({ scrollX }) => {
 
 // https://firebasestorage.googleapis.com/v0/b/ogs-storage.appspot.com/o/images%2Fsplash4.pngb991cc4e-994f-4c0b-95f9-d9c72f58e8b7?alt=media&token=d433dc98-7477-4049-b3e4-6a98ae2de02e
 
-const SplashScreen = ({navigation}) => {
+const SplashScreen = ({ navigation }) => {
   let [fontLoaded] = useFonts({
     Nunito: require("./../assets/fonts/Nunito-Black.ttf"),
   });
@@ -99,7 +99,7 @@ const SplashScreen = ({navigation}) => {
           <StatusBar style="dark" />
           <StyledContainer>
             <AreaView placement={true}>
-              <TransparentButton onPress={() => navigation.navigate('Start')}>
+              <TransparentButton onPress={() => navigation.navigate("Start")}>
                 <DeepText style={{ fontFamily: "Nunito" }}>Skip</DeepText>
                 <AntDesign name="right" size={24} color="#BD0000" />
               </TransparentButton>

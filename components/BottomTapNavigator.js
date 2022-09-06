@@ -1,48 +1,62 @@
 import * as React from "react";
-import Ionicons from "react-native-vector-icons/Ionicons"
+import Ionicons from "react-native-vector-icons/Ionicons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { View, Text } from "react-native";
 import DashboardScreen from "../screens/DashboardScreen";
 import Favourite from "../screens/FavouriteScreen";
 import DiscoverScreen from "../screens/DiscoverScreen";
 
-const Tab = createBottomTabNavigator()
+const Tab = createBottomTabNavigator();
 
-const BottomTabNavigator = ({ navigation })=>{
-    return(
-        <>
-                <Tab.Navigator
-                screenOptions={({route})=>({
-                    tabBarIconStyle:{
-                        activeTintColor: "#F6B300"
-                    },
-                    tabBarActiveTintColor:"#F6B300",
-                    tabBarLabelStyle:{fontSize:10, fontFamily:"Nunito"},
-                    tabBarInactiveTintColor: "grey",
-                tabBarIcon: ({focused, size, color})=>{
-                    let iconName;
-                    if(route.name === "Home"){
-                        iconName = focused ? "ios-home": "ios-home-outline"
-                    }else if(route.name === "Discover"){
-                        iconName = focused ? "globe" : "globe-outline"
-                    }else if(route.name === "Favourite"){
-                        iconName = focused ? "heart": "heart-outline"
-                    }
+const BottomTabNavigator = ({ navigation }) => {
+  return (
+    <>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIconStyle: {
+            activeTintColor: "#F6B300",
+          },
+          tabBarActiveTintColor: "#F6B300",
+          tabBarLabelStyle: { fontSize: 10, fontFamily: "Nunito" },
+          tabBarInactiveTintColor: "grey",
+          tabBarIcon: ({ focused, size, color }) => {
+            let iconName;
+            if (route.name === "Home") {
+              iconName = focused ? "ios-home" : "ios-home-outline";
+            } else if (route.name === "Discover") {
+              iconName = focused ? "globe" : "globe-outline";
+            } else if (route.name === "Favourite") {
+              iconName = focused ? "heart" : "heart-outline";
+            }
 
-                    return(
-                        <Ionicons name={iconName} size={size} color={focused ? "#F6B300": "grey"} />
-                    )
-                }
-
-                })}
-                >
-                    <Tab.Screen name="Home" component={DashboardScreen} options={{headerShown:false}}/>
-                    <Tab.Screen name="Discover" component={DiscoverScreen} options={{headerShown:false}}/>
-                    <Tab.Screen name="Favourite" component={Favourite} options={{headerShown:false}}/>
-
-                </Tab.Navigator>
-        </>
-    )
-}
+            return (
+              <Ionicons
+                name={iconName}
+                size={size}
+                color={focused ? "#F6B300" : "grey"}
+              />
+            );
+          },
+        })}
+      >
+        <Tab.Screen
+          name="Home"
+          component={DashboardScreen}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name="Discover"
+          component={DiscoverScreen}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name="Favourite"
+          component={Favourite}
+          options={{ headerShown: false }}
+        />
+      </Tab.Navigator>
+    </>
+  );
+};
 
 export default BottomTabNavigator;
