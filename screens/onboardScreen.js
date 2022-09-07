@@ -7,17 +7,9 @@ import {
   View,
   Dimensions,
 } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+
 import {
   StyledContainer,
-  TransparentButton,
-  DeepText,
-  AreaView,
-  StyledImage,
-  HeadText,
-  CenterText,
-  SvgImage,
-  SignInButton,
   Colors,
 } from "../components/styles";
 import { useFonts } from "expo-font";

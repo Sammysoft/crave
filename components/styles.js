@@ -16,6 +16,8 @@ export const Colors = {
   NORMAL: "#717171",
   WHITE: "#FFFFFF",
   GREY: "#E5E5E5",
+  TOMATO:"#D76666",
+  DIRTYWHITE:"#F2CCCC"
 };
 
 const { GRAD1, DEEP, LIGHT, WHITE, DARK, NORMAL, GREY } = Colors;
@@ -53,7 +55,7 @@ export const AreaView = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
 
   ${(props) =>
     props.placement == true &&

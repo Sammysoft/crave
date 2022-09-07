@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Dimensions } from "react-native";
+import { View, Text, Dimensions, TouchableOpacity } from "react-native";
 const { height, width, FlatList } = Dimensions.get("screen");
 
 const data = [
@@ -34,24 +34,24 @@ const data = [
 const ProductItem = () => {
   return (
     <>
-      <FlatList
-        data={data}
-        renderItem={({ item }) => {
-          <View
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height:100,
-              margin:1
-            }}
-          >
-            <Text>{item.meal}</Text>
-          </View>;
-        }}
-        numOfColumns={2}
-        keyExtractor={(item, index) => index}
-      ></FlatList>
+        <FlatList
+          data={data}
+          renderItem={({ item }) => {
+            <View
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: 100,
+                margin: 1,
+              }}
+            >
+              <Text>{item.meal}</Text>
+            </View>;
+          }}
+          numOfColumns={2}
+          keyExtractor={(item, index) => index}
+        ></FlatList>
     </>
   );
 };

@@ -5,8 +5,11 @@ import {
   Dimensions,
   Text,
   Image,
+  TouchableOpacity,
+  Modal,
 } from "react-native";
 import { Colors } from "../styles";
+import Ionicons from "react-native-vector-icons/Ionicons";
 const { width, height } = Dimensions.get("screen");
 
 const ProductListings = () => {
@@ -138,7 +141,227 @@ const data = [
   },
 ];
 
+const OrderModal = ({ toggleModal, setToggleModal,  }) => {
+  return (
+    <>
+      <Modal transparent visible={toggleModal}>
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: "rgba(0,0,0,0.5)",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <View
+            style={{
+              width: width - 40,
+              height: height / 1.2,
+              backgroundColor: Colors.WHITE,
+              display: "flex",
+              flexDirection: "column",
+              position: "relative",
+            }}
+          >
+            <TouchableOpacity
+              style={{
+                backgroundColor: Colors.WHITE,
+                borderRadius: 60,
+                position: "absolute",
+                zIndex: 100,
+                top: -10,
+                left: -10,
+              }}
+              onPress={() => {
+                setToggleModal(!toggleModal);
+              }}
+            >
+              <Ionicons name="close" size={30} />
+            </TouchableOpacity>
+            <Image
+              style={{ width: "100%", height: "30%" }}
+              source={require("../../assets/images/splash2.png")}
+              resizeMode="cover"
+            />
+            <View
+              style={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "space-between",
+                paddingHorizontal: 20,
+                paddingTop: 10,
+              }}
+            >
+              <Text style={{ fontFamily: "Nunito", fontSize: 16 }}>
+                {data.meal}
+              </Text>
+              <Ionicons name="heart-outline" size={30} color={Colors.DEEP} />
+            </View>
+            <View style={{ paddingHorizontal: 20 }}>
+              <Text
+                style={{
+                  fontFamily: "Nunito",
+                  fontSize: 17,
+                  color: Colors.DEEP,
+                }}
+              >
+                #5,000
+              </Text>
+            </View>
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "space-between",
+                width: "100%",
+                paddingHorizontal: 20,
+              }}
+            >
+              <View
+                style={{
+                  paddingVertical: 10,
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Ionicons name="time-outline" size={15} />
+                <Text style={{ fontFamily: "NunitoLight", fontSize: 10 }}>
+                  {" "}
+                  40Mins
+                </Text>
+              </View>
+              <View
+                style={{
+                  paddingVertical: 10,
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Ionicons name="clipboard-outline" size={15} />
+                <Text style={{ fontFamily: "NunitoLight", fontSize: 10 }}>
+                  Pasta
+                </Text>
+              </View>
+              <View
+                style={{
+                  paddingVertical: 10,
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Text style={{ fontFamily: "NunitoLight", fontSize: 10 }}>
+                  5.0
+                </Text>
+                <Text style={{ fontFamily: "NunitoLight", fontSize: 10 }}>
+                  {" ⭐⭐⭐⭐⭐ "}
+                </Text>
+              </View>
+              <View
+                style={{
+                  paddingVertical: 10,
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Text style={{ fontFamily: "NunitoLight", fontSize: 10 }}>
+                  27 Reviews
+                </Text>
+              </View>
+            </View>
+            <View style={{ paddingHorizontal: 20 }}>
+              <Text
+                style={{ fontFamily: "NunitoMedium", color: Colors.NORMAL }}
+              >
+                In traditional Italian cuisine, the simplest pasta dishes are
+                also the tastiest.
+              </Text>
+            </View>
+
+            <View
+              style={{
+                paddingVertical:10,
+                paddingHorizontal: 20,
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "flex-start",
+                alignItems: "flex-start",
+              }}
+            >
+              <Text
+                style={{ fontFamily: "NunitoMedium", color: Colors.NORMAL, fontSize:10 }}
+              >
+                Incredent List:
+              </Text>
+           <View style={{width:'85%', paddingHorizontal:10}}>
+           <Text
+                style={{ fontFamily: "NunitoMedium", color: Colors.NORMAL, fontSize:10 }}
+              >
+                Penne pasta, Olive oil, Butter, Garlic, Tomatoes, Onions, Chili
+                flakes, Parsley
+              </Text>
+           </View>
+            </View>
+
+            <View
+              style={{
+                position: "absolute",
+                display: "flex",
+                flexDirection: "row",
+                width: "100%",
+                bottom: 0,
+              }}
+            >
+              <View
+                style={{
+                  width: "50%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  paddingVertical: 15,
+                  borderColor: Colors.BUTTON,
+                  borderWidth: 2,
+                }}
+              >
+                <Text style={{ fontFamily: "Nunito", color: Colors.DEEP }}>
+                  Add to Cart
+                </Text>
+              </View>
+              <View
+                style={{
+                  width: "50%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: Colors.BUTTON,
+                }}
+              >
+                <Text style={{ fontFamily: "Nunito", color: Colors.DEEP }}>
+                  Buy Now
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </Modal>
+    </>
+  );
+};
+
 const ProductItem = () => {
+  const [toggleModal, setToggleModal] = React.useState(false);
+  const [myData, setData] = React.useState([])
+
   return (
     <>
       <View
@@ -154,63 +377,75 @@ const ProductItem = () => {
         {data.map((datum, index) => {
           return (
             <>
-              <View
-                key={index}
-                style={{
-                  height: 160,
-                  width: 165,
-                  backgroundColor: "white",
-                  marginTop: 10,
-                  borderTopRightRadius: 20,
-                  borderTopLeftRadius: 20,
-                  borderBottomRightRadius: 20,
-                  borderBottomLeftRadius: 20,
+              <TouchableOpacity
+                onPress={() => {
+                  setToggleModal(!toggleModal);
+                  setData(datum)
                 }}
               >
-                <Image
-                  source={{ uri: datum.image }}
-                  style={{
-                    width: 165,
-                    height: 90,
-                    borderTopLeftRadius: 20,
-                    borderTopRightRadius: 20,
-                    borderBottomRightRadius: 20,
-                  }}
-                />
                 <View
+                  key={index}
                   style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    alignItems: "center",
+                    height: 160,
+                    width: 165,
+                    backgroundColor: "white",
+                    marginTop: 10,
+                    borderTopRightRadius: 20,
+                    borderTopLeftRadius: 20,
+                    borderBottomRightRadius: 20,
+                    borderBottomLeftRadius: 20,
                   }}
                 >
-                  <Text
+                  <Image
+                    source={{ uri: datum.image }}
                     style={{
-                      fontFamily: "Nunito",
-                      padding: 10,
-                      fontSize: 12,
-                      flex: 1,
+                      width: 165,
+                      height: 90,
+                      borderTopLeftRadius: 20,
+                      borderTopRightRadius: 20,
+                      borderBottomRightRadius: 20,
+                    }}
+                  />
+                  <View
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
                     }}
                   >
-                    {datum.meal}
-                  </Text>
-                  <Text
-                    style={{
-                      fontFamily: "Nunito",
-                      color: Colors.DEEP,
-                      padding: 5,
-                    }}
-                  >
-                    #{datum.price}
+                    <Text
+                      style={{
+                        fontFamily: "Nunito",
+                        padding: 10,
+                        fontSize: 12,
+                        flex: 1,
+                      }}
+                    >
+                      {datum.meal}
+                    </Text>
+                    <Text
+                      style={{
+                        fontFamily: "Nunito",
+                        color: Colors.DEEP,
+                        padding: 5,
+                      }}
+                    >
+                      #{datum.price}
+                    </Text>
+                  </View>
+                  <Text style={{ paddingLeft: 5, fontSize: 10 }}>
+                    {" ⭐⭐⭐⭐⭐ "}
                   </Text>
                 </View>
-                <Text style={{ paddingLeft: 5, fontSize: 10 }}>
-                  {" ⭐⭐⭐⭐⭐ "}
-                </Text>
-              </View>
+              </TouchableOpacity>
             </>
           );
         })}
+        <OrderModal
+        data={myData}
+          toggleModal={toggleModal}
+          setToggleModal={setToggleModal}
+        ></OrderModal>
       </View>
     </>
   );
