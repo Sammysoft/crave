@@ -16,6 +16,8 @@ import NotificationSettings from "./screens/notification";
 import Payments from "./screens/payments";
 import Promotion from "./screens/promotion";
 import Wallet from "./screens/Wallet";
+import CartScreen from "./screens/Cart";
+import UploadScreen from "./screens/Upload";
 const { height, width } = Dimensions.get("screen");
 
 function LogoTitle() {
@@ -88,8 +90,18 @@ export default function App() {
           options={{ headerShown: false }}
         />
          <Stack.Screen
+          name="upload"
+          component={UploadScreen}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
           name="wallet"
           component={Wallet}
+          options={{ headerShown: false }}
+        />
+           <Stack.Screen
+          name="cart"
+          component={CartScreen}
           options={{ headerShown: false }}
         />
         {/* <Stack.Screen name="dashboard" component={DashboardScreen} options={{headerShown:false}}/> */}

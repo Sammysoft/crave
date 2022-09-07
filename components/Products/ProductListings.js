@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { Colors } from "../styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import Divider from "../Divider";
 const { width, height } = Dimensions.get("screen");
 
 const ProductListings = () => {
@@ -141,7 +142,7 @@ const data = [
   },
 ];
 
-const OrderModal = ({ toggleModal, setToggleModal,  }) => {
+const OrderModal = ({ toggleModal, setToggleModal, myData }) => {
   return (
     <>
       <Modal transparent visible={toggleModal}>
@@ -180,7 +181,7 @@ const OrderModal = ({ toggleModal, setToggleModal,  }) => {
             </TouchableOpacity>
             <Image
               style={{ width: "100%", height: "30%" }}
-              source={require("../../assets/images/splash2.png")}
+              source={{ uri: myData.image }}
               resizeMode="cover"
             />
             <View
@@ -195,7 +196,7 @@ const OrderModal = ({ toggleModal, setToggleModal,  }) => {
               }}
             >
               <Text style={{ fontFamily: "Nunito", fontSize: 16 }}>
-                {data.meal}
+                {myData.meal}
               </Text>
               <Ionicons name="heart-outline" size={30} color={Colors.DEEP} />
             </View>
@@ -207,7 +208,7 @@ const OrderModal = ({ toggleModal, setToggleModal,  }) => {
                   color: Colors.DEEP,
                 }}
               >
-                #5,000
+                #{myData.price}
               </Text>
             </View>
             <View
@@ -259,7 +260,7 @@ const OrderModal = ({ toggleModal, setToggleModal,  }) => {
                 }}
               >
                 <Text style={{ fontFamily: "NunitoLight", fontSize: 10 }}>
-                  5.0
+                  {myData.rating}.0
                 </Text>
                 <Text style={{ fontFamily: "NunitoLight", fontSize: 10 }}>
                   {" ⭐⭐⭐⭐⭐ "}
@@ -290,7 +291,7 @@ const OrderModal = ({ toggleModal, setToggleModal,  }) => {
 
             <View
               style={{
-                paddingVertical:10,
+                paddingVertical: 10,
                 paddingHorizontal: 20,
                 display: "flex",
                 flexDirection: "row",
@@ -299,18 +300,109 @@ const OrderModal = ({ toggleModal, setToggleModal,  }) => {
               }}
             >
               <Text
-                style={{ fontFamily: "NunitoMedium", color: Colors.NORMAL, fontSize:10 }}
+                style={{
+                  fontFamily: "NunitoMedium",
+                  color: Colors.NORMAL,
+                  fontSize: 10,
+                }}
               >
                 Incredent List:
               </Text>
-           <View style={{width:'85%', paddingHorizontal:10}}>
-           <Text
-                style={{ fontFamily: "NunitoMedium", color: Colors.NORMAL, fontSize:10 }}
-              >
-                Penne pasta, Olive oil, Butter, Garlic, Tomatoes, Onions, Chili
-                flakes, Parsley
+              <View style={{ width: "85%", paddingHorizontal: 10 }}>
+                <Text
+                  style={{
+                    fontFamily: "NunitoMedium",
+                    color: Colors.NORMAL,
+                    fontSize: 10,
+                  }}
+                >
+                  Penne pasta, Olive oil, Butter, Garlic, Tomatoes, Onions,
+                  Chili flakes, Parsley
+                </Text>
+              </View>
+            </View>
+            <View
+              style={{
+                paddingHorizontal: 20,
+                display: "flex",
+                justifyContent: "space-between",
+                width: width / 1.5,
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <Text style={{ fontFamily: "NunitoMedium", fontSize: 16 }}>
+                Quantity:
               </Text>
-           </View>
+              <TouchableOpacity style={{ borderWidth: 1, borderRadius: 3 }}>
+                <Ionicons name="add" size={20} />
+              </TouchableOpacity>
+              <Text style={{ fontFamily: "NunitoMedium", fontSize: 16 }}>
+                1 plate
+              </Text>
+              <TouchableOpacity style={{ borderWidth: 1, borderRadius: 3 }}>
+                <Ionicons name="remove" size={20} />
+              </TouchableOpacity>
+            </View>
+            <View style={{ padding: 20 }}>
+              <Divider />
+            </View>
+            <View
+              style={{
+                paddingHorizontal: 20,
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <Text style={{ fontFamily: "Nunito" }}>Reviews(3)</Text>
+              <Text style={{ fontFamily: "Nunito" }}>See all</Text>
+            </View>
+            <View style={{ padding: 20 }}>
+              <Divider />
+            </View>
+
+            <View
+              style={{
+                paddingHorizontal: 20,
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <View
+                style={{
+                  // width: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems:"flex-start"
+                }}
+              >
+                <View
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "flex-start",
+                    justifyContent: "space-between",
+                    width: "50%",
+                  }}
+                >
+                  <Text style={{ fontFamily: "NunitoLight", fontSize: 10 }}>
+                    @o*******7
+                  </Text>
+                  <Text style={{ fontFamily: "NunitoLight", fontSize: 10 }}>
+                    {" ⭐⭐⭐⭐⭐ "}
+                  </Text>
+                </View>
+                <View style={{paddingVertical:10}}>
+                  <Text style={{fontFamily:"NunitoMedium", fontSize:12}}>This meal is perfection!!! </Text>
+                </View>
+              </View>
+              <View>
+                <Text style={{fontFamily:"NunitoMedium"}}>24 Dec 2022</Text>
+              </View>
             </View>
 
             <View
@@ -360,7 +452,7 @@ const OrderModal = ({ toggleModal, setToggleModal,  }) => {
 
 const ProductItem = () => {
   const [toggleModal, setToggleModal] = React.useState(false);
-  const [myData, setData] = React.useState([])
+  const [myData, setData] = React.useState([]);
 
   return (
     <>
@@ -380,7 +472,7 @@ const ProductItem = () => {
               <TouchableOpacity
                 onPress={() => {
                   setToggleModal(!toggleModal);
-                  setData(datum)
+                  setData(datum);
                 }}
               >
                 <View
@@ -390,10 +482,7 @@ const ProductItem = () => {
                     width: 165,
                     backgroundColor: "white",
                     marginTop: 10,
-                    borderTopRightRadius: 20,
-                    borderTopLeftRadius: 20,
-                    borderBottomRightRadius: 20,
-                    borderBottomLeftRadius: 20,
+                   borderRadius:20
                   }}
                 >
                   <Image
@@ -442,7 +531,7 @@ const ProductItem = () => {
           );
         })}
         <OrderModal
-        data={myData}
+          myData={myData}
           toggleModal={toggleModal}
           setToggleModal={setToggleModal}
         ></OrderModal>

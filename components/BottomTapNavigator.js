@@ -1,10 +1,11 @@
 import * as React from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { View, Text } from "react-native";
 import DashboardScreen from "../screens/DashboardScreen";
 import Favourite from "../screens/FavouriteScreen";
 import DiscoverScreen from "../screens/DiscoverScreen";
+import CartScreen from "../screens/Cart";
+import UploadScreen from "../screens/Upload";
 
 const Tab = createBottomTabNavigator();
 
@@ -28,6 +29,12 @@ const BottomTabNavigator = ({ navigation }) => {
             } else if (route.name === "Favourite") {
               iconName = focused ? "heart" : "heart-outline";
             }
+            else if (route.name === "Tray") {
+              iconName = focused ? "cart" : "cart-outline";
+            }
+            else if (route.name === "Upload") {
+              iconName = focused ? "cloud-upload" : "cloud-upload-outline";
+            }
 
             return (
               <Ionicons
@@ -47,6 +54,16 @@ const BottomTabNavigator = ({ navigation }) => {
         <Tab.Screen
           name="Discover"
           component={DiscoverScreen}
+          options={{ headerShown: false }}
+        />
+            <Tab.Screen
+          name="Upload"
+          component={UploadScreen}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name="Tray"
+          component={CartScreen}
           options={{ headerShown: false }}
         />
         <Tab.Screen

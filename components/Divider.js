@@ -8,7 +8,7 @@ const Divider = () => {
     <>
       <View
         style={{
-          width,
+          width:'100%',
           backgroundColor: Colors.GREY,
           height: 1,
           margin: "auto",
