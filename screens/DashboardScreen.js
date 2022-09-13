@@ -26,7 +26,7 @@ const DashboardScreen = ({ navigation }) => {
           <StatusBar style="dark" />
           <StyledContainer>
             <TopSearchBar navigation={navigation} />
-            <Switcher></Switcher>
+            <Switcher />
             <HeadText />
             <Categories />
             {/* <AdSection /> */}

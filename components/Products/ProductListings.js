@@ -22,13 +22,13 @@ const ProductListings = () => {
 };
 
 const HeadSwitcher = () => {
+
   return (
     <>
       <View>
         <ScrollView
           horizontal={true}
           showsHorizontalScrollIndicator={false}
-          style={{}}
         >
           <View
             style={{
@@ -38,7 +38,7 @@ const HeadSwitcher = () => {
               alignItems: "center",
             }}
           >
-            <View
+            <TouchableOpacity
               style={{
                 paddingHorizontal: 30,
                 paddingVertical: 10,
@@ -49,7 +49,8 @@ const HeadSwitcher = () => {
               <Text style={{ fontFamily: "NunitoMedium", fontSize: 16 }}>
                 All
               </Text>
-            </View>
+            </TouchableOpacity>
+
             <View style={{ paddingHorizontal: 30, paddingVertical: 10 }}>
               <Text style={{ fontFamily: "NunitoMedium", fontSize: 16 }}>
                 Trending
@@ -377,7 +378,7 @@ const OrderModal = ({ toggleModal, setToggleModal, myData }) => {
                   // width: "100%",
                   display: "flex",
                   flexDirection: "column",
-                  alignItems:"flex-start"
+                  alignItems: "flex-start",
                 }}
               >
                 <View
@@ -396,12 +397,14 @@ const OrderModal = ({ toggleModal, setToggleModal, myData }) => {
                     {" ⭐⭐⭐⭐⭐ "}
                   </Text>
                 </View>
-                <View style={{paddingVertical:10}}>
-                  <Text style={{fontFamily:"NunitoMedium", fontSize:12}}>This meal is perfection!!! </Text>
+                <View style={{ paddingVertical: 10 }}>
+                  <Text style={{ fontFamily: "NunitoMedium", fontSize: 12 }}>
+                    This meal is perfection!!!{" "}
+                  </Text>
                 </View>
               </View>
               <View>
-                <Text style={{fontFamily:"NunitoMedium"}}>24 Dec 2022</Text>
+                <Text style={{ fontFamily: "NunitoMedium" }}>24 Dec 2022</Text>
               </View>
             </View>
 
@@ -482,7 +485,7 @@ const ProductItem = () => {
                     width: 165,
                     backgroundColor: "white",
                     marginTop: 10,
-                   borderRadius:20
+                    borderRadius: 20,
                   }}
                 >
                   <Image
