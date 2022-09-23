@@ -27,11 +27,15 @@ const TopSearchBar = (props) => {
           }}
         >
           <View>
-            <TouchableOpacity onPress={()=>{props.navigation.navigate("settings")}}>
-            <Image
-              style={{ width: 50, height: 50, borderRadius: 50 / 2 }}
-              source={require("./../assets/images/profile.png")}
-            />
+            <TouchableOpacity
+              onPress={() => {
+                props.navigation.navigate("settings");
+              }}
+            >
+              <Image
+                style={{ width: 50, height: 50, borderRadius: 50 / 2 }}
+                source={require("./../assets/images/profile.png")}
+              />
             </TouchableOpacity>
           </View>
           <Formik
@@ -79,7 +83,11 @@ const TopSearchBar = (props) => {
                     style={{ fontFamily: "Nunito" }}
                   />
                   <View style={{}}>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                      onPress={() => {
+                        props.setScreen(true);
+                      }}
+                    >
                       <Ionicons name="search" size={30} />
                     </TouchableOpacity>
                   </View>

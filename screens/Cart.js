@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 import React from "react";
 import {
   View,
@@ -88,10 +89,17 @@ const CartScreen = ({ navigation }) => {
                   display: "flex",
                   flexDirection: "row",
                   justifyContent: "space-between",
-                  alignItems: "flex-start",
+                  alignItems: "center",
                 }}
               >
-                
+                  {select === true ? (
+                  <BouncyCheckbox
+                    style={{ borderColor: Colors.DEEP }}
+                    fillColor={Colors.DEEP}
+                  />
+                ) : (
+                  <></>
+                )}
                 <Image
                   source={require("./../assets/images/splash1.png")}
                   style={{

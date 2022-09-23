@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 import React from "react";
 import {
   View,
@@ -16,17 +17,15 @@ import Divider from "../components/Divider";
 
 const { height, width } = Dimensions.get("screen");
 
+const Favourite = ({ navigation }) => {
+  const [select, setSelect] = React.useState(false);
+  React.useEffect(() => {
+    setSelect(false);
+  }, []);
 
-
-const Favourite =({navigation })=>{
-    const [select, setSelect] = React.useState(false);
-    React.useEffect(() => {
-      setSelect(false);
-    }, []);
-
-    return(
-        <>
- <SafeAreaView>
+  return (
+    <>
+      <SafeAreaView>
         <StatusBar style="dark" backgroundColor="white" />
         <StyledContainer>
           <View
@@ -75,7 +74,7 @@ const Favourite =({navigation })=>{
             </View>
           </View>
           <Pressable
-            style={{ height: "85%" }}
+            style={{ height: "95%" }}
             onLongPress={() => {
               setSelect(!select);
             }}
@@ -90,14 +89,21 @@ const Favourite =({navigation })=>{
                   display: "flex",
                   flexDirection: "row",
                   justifyContent: "space-between",
-                  alignItems: "flex-start",
+                  alignItems: "center",
                 }}
               >
-
+                {select === true ? (
+                  <BouncyCheckbox
+                    style={{ borderColor: Colors.DEEP }}
+                    fillColor={Colors.DEEP}
+                  />
+                ) : (
+                  <></>
+                )}
                 <Image
                   source={require("./../assets/images/splash1.png")}
                   style={{
-                    height: height / 9,
+                    height: height / 7,
                     borderRadius: 5,
                     width: width / 3.5,
                   }}
@@ -126,26 +132,152 @@ const Favourite =({navigation })=>{
                       fontFamily: "Nunito",
                       fontSize: 16,
                       paddingBottom: 10,
-                      color:Colors.DEEP
+                      color: Colors.DEEP,
                     }}
                   >
                     #5400
                   </Text>
-                    <Text>{" ⭐⭐⭐⭐⭐ "}</Text>
-                    <Image style={{height:50, width:50}} source={require("../assets/images/Vector.png")}/>
+                  <Text>{"⭐⭐⭐⭐⭐ "}</Text>
+                  <Image
+                    style={{ height: 20, width: 20, marginVertical: 10 }}
+                    source={require("../assets/images/Vector.png")}
+                  />
                 </View>
               </View>
-              <View style={{paddingHorizontal:10}}>
-              <Divider />
+
+              <View
+                style={{
+                  padding: 10,
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                {select === true ? (
+                  <BouncyCheckbox
+                    style={{ borderColor: Colors.DEEP }}
+                    fillColor={Colors.DEEP}
+                  />
+                ) : (
+                  <></>
+                )}
+                <Image
+                  source={require("./../assets/images/splash1.png")}
+                  style={{
+                    height: height / 7,
+                    borderRadius: 5,
+                    width: width / 3.5,
+                  }}
+                />
+                <View
+                  style={{
+                    flex: 2,
+                    paddingHorizontal: 10,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    alignItems: "flex-start",
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontFamily: "Nunito",
+                      fontSize: 16,
+                      paddingBottom: 10,
+                    }}
+                  >
+                    Penne pasta in tomato sauce
+                  </Text>
+                  <Text
+                    style={{
+                      fontFamily: "Nunito",
+                      fontSize: 16,
+                      paddingBottom: 10,
+                      color: Colors.DEEP,
+                    }}
+                  >
+                    #5400
+                  </Text>
+                  <Text>{"⭐⭐⭐⭐⭐ "}</Text>
+                  <Image
+                    style={{ height: 20, width: 20, marginVertical: 10 }}
+                    source={require("../assets/images/Vector.png")}
+                  />
+                </View>
               </View>
 
+              <View
+                style={{
+                  padding: 10,
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                {select === true ? (
+                  <BouncyCheckbox
+                    style={{ borderColor: Colors.DEEP }}
+                    fillColor={Colors.DEEP}
+                  />
+                ) : (
+                  <></>
+                )}
+                <Image
+                  source={require("./../assets/images/splash1.png")}
+                  style={{
+                    height: height / 7,
+                    borderRadius: 5,
+                    width: width / 3.5,
+                  }}
+                />
+                <View
+                  style={{
+                    flex: 2,
+                    paddingHorizontal: 10,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    alignItems: "flex-start",
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontFamily: "Nunito",
+                      fontSize: 16,
+                      paddingBottom: 10,
+                    }}
+                  >
+                    Penne pasta in tomato sauce
+                  </Text>
+                  <Text
+                    style={{
+                      fontFamily: "Nunito",
+                      fontSize: 16,
+                      paddingBottom: 10,
+                      color: Colors.DEEP,
+                    }}
+                  >
+                    #5400
+                  </Text>
+                  <Text>{"⭐⭐⭐⭐⭐ "}</Text>
+                  <Image
+                    style={{ height: 20, width: 20, marginVertical: 10 }}
+                    source={require("../assets/images/Vector.png")}
+                  />
+                </View>
+              </View>
+              <View style={{ paddingHorizontal: 10 }}>
+                <Divider />
+              </View>
             </ScrollView>
           </Pressable>
           <Divider />
         </StyledContainer>
       </SafeAreaView>
-        </>
-    )
-}
+    </>
+  );
+};
 
 export default Favourite;

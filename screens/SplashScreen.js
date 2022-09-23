@@ -121,12 +121,13 @@ const SplashScreen = ({ navigation }) => {
               showsHorizontalScrollIndicator={false}
               renderItem={({ item }) => {
                 return (
-                  <View style={{ width }}>
+                  <View style={{ width, height }}>
                     <View>
                       <AreaView>
                         <StyledImage
                           resizeMode="cover"
                           source={{ uri: item.image }}
+                          // style={{width: width, height: height/1.6}}
                         />
                       </AreaView>
                       <AreaView>
@@ -135,7 +136,7 @@ const SplashScreen = ({ navigation }) => {
                         </HeadText>
                       </AreaView>
                     </View>
-                    <View>
+                    <View >
                       <AreaView>
                         <Text
                           style={{

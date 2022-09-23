@@ -73,8 +73,8 @@ margin:auto;
 `;
 
 export const StyledImage = styled.Image`
-  width: ${width};
-  height: ${width};
+    width: ${width};
+    height: ${height/1.5}
 `;
 
 export const CenterText = styled.Text`

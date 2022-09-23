@@ -8,9 +8,10 @@ import {
   Text,
   SafeAreaView,
   Dimensions,
-  Pressable,
+  Modal,
   Image,
   TextInput,
+  Pressable,
 } from "react-native";
 import { StyledContainer, Colors } from "../components/styles";
 import { Formik } from "formik";
@@ -201,6 +202,14 @@ const Payments = ({ navigation }) => {
 
 
 const PaymentForm = () => {
+  const [toggleModal, setToggleModal] = React.useState(Boolean)
+
+
+  React.useEffect(()=>{
+    setToggleModal(false)
+  },[])
+
+
   return (
     <>
       <View style={{ marginVertical: 20 }}>
@@ -223,20 +232,60 @@ const PaymentForm = () => {
               <MyTextField
                 labels="CVV "
                 icon={
+                  <TouchableOpacity
+                  onPress={()=>{setToggleModal(!toggleModal)}}>
                   <Ionicons
                     name={"information-circle-outline"}
                     size={30}
                     style={{ color: Colors.GREY }}
                   />
+                  </TouchableOpacity>
                 }
               />
             </>
           )}
         </Formik>
       </View>
+      <ModalView toggleModal={toggleModal} setToggleModal={setToggleModal}/>
     </>
   );
 };
+
+
+const ModalView = ({ toggleModal, setToggleModal })=>{
+  return(<>
+    <Modal transparent visible={toggleModal}>
+        <Pressable
+          style={{
+            flex: 1,
+            backgroundColor: "rgba(0,0,0,0.5)",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          onPress={()=>{setToggleModal(!toggleModal)}}
+        >
+          <View
+            style={{
+              width: width - 40,
+              height: height / 3,
+              backgroundColor: Colors.WHITE,
+              display: "flex",
+              flexDirection: "column",
+              position: "relative",
+              justifyContent:"center",
+              alignItems:"center"
+            }}
+          >
+            <Text style={{fontFamily:"Nunito", fontSize:24, marginVertical:10}}>What's CVV?</Text>
+            <View style={{width:'80%',marginVertical:10}}>
+            <Text style={{fontFamily:"NunitoMedium", fontSize:16, textAlign:"center"}}>CVV is the 3 digit number on the back of your card</Text>
+            </View>
+            <Image source={require("../assets/images/cvv.png")} />
+          </View>
+          </Pressable>
+          </Modal>
+  </>)
+}
 
 
 

@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Image, View, Dimensions } from "react-native";
 
-import BottomTabNavigator from "./components/BottomTapNavigator";
+import BottomTabNavigator from "./components/BottomTabNavigator";
 import SplashScreen from "./screens/SplashScreen";
 import GetStarted from "./screens/GetStarted";
 import OnboardScreen from "./screens/onboardScreen";
@@ -18,6 +18,7 @@ import Promotion from "./screens/promotion";
 import Wallet from "./screens/Wallet";
 import CartScreen from "./screens/Cart";
 import UploadScreen from "./screens/Upload";
+import Filter from "./screens/FIlter";
 const { height, width } = Dimensions.get("screen");
 
 function LogoTitle() {
@@ -87,6 +88,11 @@ export default function App() {
         <Stack.Screen
           name="promotion"
           component={Promotion}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
+          name="filter"
+          component={Filter}
           options={{ headerShown: false }}
         />
          <Stack.Screen

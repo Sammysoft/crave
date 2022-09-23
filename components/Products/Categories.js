@@ -14,7 +14,7 @@ const Categories = () => {
   return (
     <>
     <View>
-    <ScrollView horizontal={true} style={{ flexDirection: "row" }}>
+    <ScrollView horizontal={true} style={{ flexDirection: "row" }} showsHorizontalScrollIndicator={false}>
         {data.map((item, index) => {
           return (
             <>
@@ -67,10 +67,10 @@ const CategoryItem = ({ item }) => {
         jusifyContent: "space-between",
         alignItems: "center",
         padding: 10,
-        height: height / 10,
+        height: height / 9,
       }}
     >
-     <Image style={{width: 50, height: 50}} source={{uri: item.image}}/>
+     <Image style={{width:60, height:60}} source={{uri: item.image}} resizeMode="contain" />
       <Text style={{ fontSize: 12, fontFamily: "NunitoLight", color: Colors.DARK }}>
         {item.title}
       </Text>
