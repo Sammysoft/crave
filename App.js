@@ -18,7 +18,7 @@ import Promotion from "./screens/promotion";
 import Wallet from "./screens/Wallet";
 import CartScreen from "./screens/Cart";
 import UploadScreen from "./screens/Upload";
-import Filter from "./screens/FIlter";
+import Filter from "./screens/Filter";
 const { height, width } = Dimensions.get("screen");
 
 function LogoTitle() {
