@@ -89,7 +89,7 @@ const SigninScreen = ({ navigation }) => {
                             fontSize: 15,
                             textAlign: "center",
                           }}
-                          onPress={() => navigation.navigate("dashboard")}
+                          onPress={() => navigation.navigate("Home", {screen:"dashboard"})}
                         >
                           Next
                         </Text>

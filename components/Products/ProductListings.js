@@ -22,14 +22,10 @@ const ProductListings = () => {
 };
 
 const HeadSwitcher = () => {
-
   return (
     <>
       <View>
-        <ScrollView
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-        >
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           <View
             style={{
               display: "flex",
@@ -469,70 +465,66 @@ const ProductItem = () => {
           margin: 10,
         }}
       >
-        {data.map((datum, index) => {
-          return (
-            <>
-              <TouchableOpacity
-                onPress={() => {
-                  setToggleModal(!toggleModal);
-                  setData(datum);
+        {data.map((datum, index) => (
+          <TouchableOpacity
+          key={index}
+            onPress={() => {
+              setToggleModal(!toggleModal);
+              setData(datum);
+            }}
+          >
+            <View
+              style={{
+                height: 160,
+                width: 165,
+                backgroundColor: "white",
+                marginTop: 10,
+                borderRadius: 20,
+              }}
+            >
+              <Image
+                source={{ uri: datum.image }}
+                style={{
+                  width: 165,
+                  height: 90,
+                  borderTopLeftRadius: 20,
+                  borderTopRightRadius: 20,
+                  borderBottomRightRadius: 20,
+                }}
+              />
+              <View
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
                 }}
               >
-                <View
-                  key={index}
+                <Text
                   style={{
-                    height: 160,
-                    width: 165,
-                    backgroundColor: "white",
-                    marginTop: 10,
-                    borderRadius: 20,
+                    fontFamily: "Nunito",
+                    padding: 10,
+                    fontSize: 12,
+                    flex: 1,
                   }}
                 >
-                  <Image
-                    source={{ uri: datum.image }}
-                    style={{
-                      width: 165,
-                      height: 90,
-                      borderTopLeftRadius: 20,
-                      borderTopRightRadius: 20,
-                      borderBottomRightRadius: 20,
-                    }}
-                  />
-                  <View
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Text
-                      style={{
-                        fontFamily: "Nunito",
-                        padding: 10,
-                        fontSize: 12,
-                        flex: 1,
-                      }}
-                    >
-                      {datum.meal}
-                    </Text>
-                    <Text
-                      style={{
-                        fontFamily: "Nunito",
-                        color: Colors.DEEP,
-                        padding: 5,
-                      }}
-                    >
-                      #{datum.price}
-                    </Text>
-                  </View>
-                  <Text style={{ paddingLeft: 5, fontSize: 10 }}>
-                    {" ⭐⭐⭐⭐⭐ "}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            </>
-          );
-        })}
+                  {datum.meal}
+                </Text>
+                <Text
+                  style={{
+                    fontFamily: "Nunito",
+                    color: Colors.DEEP,
+                    padding: 5,
+                  }}
+                >
+                  #{datum.price}
+                </Text>
+              </View>
+              <Text style={{ paddingLeft: 5, fontSize: 10 }}>
+                {" ⭐⭐⭐⭐⭐ "}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        ))}
         <OrderModal
           myData={myData}
           toggleModal={toggleModal}

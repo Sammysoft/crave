@@ -4,10 +4,10 @@
     "slug": "Crave",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/splash.png",
+    "icon": "./assets/images/logo_sqr.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/logo_sqr.png",
       "resizeMode": "contain",
       "backgroundColor": "#F6B300"
     },
@@ -22,12 +22,14 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/splash.png",
+        "foregroundImage": "./assets/images/logo_sqr.png",
         "backgroundColor": "#F6B300"
       }
     },
     "web": {
-      "favicon": "./assets/images/splash.png"
-    }
+      "favicon": "./assets/images/logo_sqr.png"
+    },
+    "description": "Mobile App built on React Native",
+    "githubUrl": "https://github.com/Sammysoft/crave"
   }
 }

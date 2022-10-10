@@ -18,6 +18,7 @@ import HeadText from "../components/HeadText";
 import Categories from "../components/Products/Categories";
 import AdSection from "../components/Products/AdSection";
 import ProductListings from "../components/Products/ProductListings";
+import Loader from "../components/Loader";
 
 const { height, width } = Dimensions.get("screen");
 
@@ -63,6 +64,7 @@ const DashboardScreen = ({ navigation }) => {
                 <Landing />
               </StyledContainer>
             </SafeAreaView>
+            {/* <Loader /> */}
           </>
         );
         break;

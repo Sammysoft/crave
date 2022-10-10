@@ -92,7 +92,7 @@ const CartScreen = ({ navigation }) => {
                   alignItems: "center",
                 }}
               >
-                  {select === true ? (
+                {select === true ? (
                   <BouncyCheckbox
                     style={{ borderColor: Colors.DEEP }}
                     fillColor={Colors.DEEP}
@@ -132,7 +132,7 @@ const CartScreen = ({ navigation }) => {
                       fontFamily: "Nunito",
                       fontSize: 16,
                       paddingBottom: 10,
-                      color:Colors.DEEP
+                      color: Colors.DEEP,
                     }}
                   >
                     #5400
@@ -142,10 +142,16 @@ const CartScreen = ({ navigation }) => {
                       display: "flex",
                       flexDirection: "row",
                       justifyContent: "flex-start",
-                      alignItems:"center"
+                      alignItems: "center",
                     }}
                   >
-                    <Text style={{ fontFamily: "NunitoMedium", fontSize:10, flex:1 }}>
+                    <Text
+                      style={{
+                        fontFamily: "NunitoMedium",
+                        fontSize: 10,
+                        flex: 1,
+                      }}
+                    >
                       Quantity: 1 plate
                     </Text>
                     <View
@@ -153,22 +159,23 @@ const CartScreen = ({ navigation }) => {
                         display: "flex",
                         flexDirection: "row",
                         justifyContent: "flex-start",
-                        alignItems:"center",
-                        flex:1
+                        alignItems: "center",
+                        flex: 1,
                       }}
                     >
                       <Ionicons name="time-outline" size={20} />
-                      <Text style={{ fontFamily: "NunitoMedium", fontSize:10}}>
-                         40 Mins
+                      <Text
+                        style={{ fontFamily: "NunitoMedium", fontSize: 10 }}
+                      >
+                        40 Mins
                       </Text>
                     </View>
                   </View>
                 </View>
               </View>
-              <View style={{paddingHorizontal:10}}>
-              <Divider />
+              <View style={{ paddingHorizontal: 10 }}>
+                <Divider />
               </View>
-
             </ScrollView>
           </Pressable>
           <TouchableOpacity

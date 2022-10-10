@@ -5,8 +5,6 @@ import {
   View,
   Text,
   StyleSheet,
-  FlatList,
-  Image,
   Dimensions,
   Animated,
 } from "react-native";
@@ -20,7 +18,6 @@ import {
   AreaView,
   StyledImage,
   HeadText,
-  CenterText,
 } from "../components/styles";
 
 const { width, height } = Dimensions.get("screen");
